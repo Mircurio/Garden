@@ -28,16 +28,16 @@ namespace Program
             Console.WriteLine("---------------------------------------------------------------------------------");
             Console.WriteLine("Растение\t|Формула роста\t|Компост\t|Навоз\t\t|Любимые сезоны\t|");
             Console.WriteLine("---------------------------------------------------------------------------------");
-            
+
             foreach (Program.Plant plant in plants)
             {
                 if (plant.getName().Length >= 8)
                 {
                     Console.Write($"{plant.getName()}\t|\t{plant.getGrFormula()}\t|\t{plant.getCompost()}\t|\t{plant.getManure()}\t|");
 
-                    foreach(Program.Seasons season in plant.getSeasons())
+                    foreach (Program.Seasons season in plant.getSeasons())
                     {
-                        switch(season)
+                        switch (season)
                         {
                             case Program.Seasons.autumn:
                                 Console.Write(" О ");
@@ -96,5 +96,5 @@ namespace Program
             Console.WriteLine("---------------------------------------------------------------------------------");
         }
     }
-         
+
 }

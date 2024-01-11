@@ -6,20 +6,20 @@ namespace Program
 {
     public class Program
     {
-        public class DifferentSeasonsException: Exception
+        public class DifferentSeasonsException : Exception
         {
-            public DifferentSeasonsException(string message): base(message) { }
-            public DifferentSeasonsException(): this("Не все растения могут расти в текущий сезон!") { }
+            public DifferentSeasonsException(string message) : base(message) { }
+            public DifferentSeasonsException() : this("Не все растения могут расти в текущий сезон!") { }
         }
-        public class CannotFindSoilException: Exception
+        public class CannotFindSoilException : Exception
         {
-            public CannotFindSoilException(): base("Не удаётся найти грядку с таким номером!")
+            public CannotFindSoilException() : base("Не удаётся найти грядку с таким номером!")
             {
 
             }
         }
 
-        public class ThisSoilIsAlreadyExistsException: Exception
+        public class ThisSoilIsAlreadyExistsException : Exception
         {
             public ThisSoilIsAlreadyExistsException() : base("Грядка с таким номером уже существует!")
             {
@@ -39,7 +39,7 @@ namespace Program
             private int compost;
             private int manure;
             private int number;
-            
+
             public Soil(int number, int grFormula, int compost, int manure)
             {
                 this.grFormula = grFormula;
@@ -230,7 +230,7 @@ namespace Program
             {
                 plants = new List<Plant>();
             }
-           
+
             public static void clear()
             {
                 plants.Clear();
@@ -261,7 +261,7 @@ namespace Program
                 int compost = 0;
                 int manure = 0;
 
-                foreach(Plant plant in plants)
+                foreach (Plant plant in plants)
                 {
                     grFormula += plant.getGrFormula();
                     compost += plant.getCompost();
@@ -307,7 +307,7 @@ namespace Program
                 {
                     List<Soil> soils = Garden.getSoils();
 
-                    foreach(Soil soil in soils)
+                    foreach (Soil soil in soils)
                     {
                         file.WriteLine(soil.getNumber());
                         file.WriteLine(soil.getGrFormula());
@@ -378,7 +378,7 @@ namespace Program
                 {
                     Console.WriteLine($"В почве содержится {typeOfFertilizer}: {amountOfFertilizer}.");
                 }
-                
+
             }
 
             // Вызывается только из Planner. Нужен для отображения результатов.
@@ -525,11 +525,11 @@ namespace Program
                     Console.Write("Выберете действие: ");
                     int choice = Convert.ToInt32(Console.ReadLine());
 
-                    switch(choice)
+                    switch (choice)
                     {
 
                         case 1:
-                        {
+                            {
                                 bool success = false;
 
                                 do
@@ -550,7 +550,7 @@ namespace Program
                                         errorDetected(ex.Message + "\nПопробуйте ещё раз.", 5000);
                                         Console.Clear();
                                     }
-                                    catch(FormatException ex)
+                                    catch (FormatException ex)
                                     {
                                         errorDetected("Некорректный ввод!\nПопробуйте ещё раз.");
                                     }
@@ -558,9 +558,9 @@ namespace Program
                                 } while (!success);
 
                                 break;
-                        }
+                            }
                         case 2:
-                        {
+                            {
                                 bool success = false;
 
                                 do
@@ -617,10 +617,10 @@ namespace Program
 
                                 } while (!success);
                                 break;
-                        }
+                            }
 
                         case 3:
-                        {
+                            {
                                 bool success = false;
 
                                 do
@@ -640,12 +640,12 @@ namespace Program
                                         Thread.Sleep(2000);
                                         Console.Clear();
                                     }
-                                    catch(CannotFindSoilException ex)
+                                    catch (CannotFindSoilException ex)
                                     {
                                         errorDetected(ex.Message + "\nПопробуйте ещё раз.", 5000);
                                         Console.Clear();
                                     }
-                                    catch(FormatException ex)
+                                    catch (FormatException ex)
                                     {
                                         errorDetected("Некорректный ввод!\nПопробуйте ещё раз.", 5000);
                                         Console.Clear();
@@ -653,25 +653,25 @@ namespace Program
 
                                 } while (!success);
                                 break;
-                        }
+                            }
 
                         case 4:
-                        {
+                            {
                                 Program2.printAll();
                                 break;
-                        }
+                            }
 
                         case 5:
-                        {
+                            {
                                 Save.save();
 
                                 break;
-                        }
+                            }
                         case 6:
-                        {
+                            {
                                 finish = true;
                                 break;
-                        }
+                            }
                     }
 
                 } while (!finish);
@@ -685,7 +685,7 @@ namespace Program
                 Console.WriteLine($"Добро пожаловать в Огородик {version}!");
                 Console.WriteLine();
 
-                Plant plant = new Plant ( "carrot", new List<Seasons> { Seasons.autumn, Seasons.winter, Seasons.spring }, -4, 2, 2 );
+                Plant plant = new Plant("carrot", new List<Seasons> { Seasons.autumn, Seasons.winter, Seasons.spring }, -4, 2, 2);
 
                 Load.load();
 
