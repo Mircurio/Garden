@@ -3,24 +3,24 @@ using System.Collections.Generic;
 
 namespace Program
 {
-    public class Program2
+    public class Plants
     {
-        public static readonly Program.Plant[] plants = new Program.Plant[]
+        public static readonly Plant[] plants = new Plant[]
         {
-           new Program.Plant ("морковь", new List<Program.Seasons> { Program.Seasons.autumn, Program.Seasons.winter, Program.Seasons.spring}, -4, 2, 2 ) ,
-           new Program.Plant ("кукуруза", new List<Program.Seasons> { Program.Seasons.autumn, Program.Seasons.spring, Program.Seasons.autumn}, 2, -4, 2 ) ,
-           new Program.Plant ("картофель", new List<Program.Seasons> { Program.Seasons.autumn, Program.Seasons.winter, Program.Seasons.spring}, 2, 2, -4 ) ,
-           new Program.Plant ("томат", new List<Program.Seasons> { Program.Seasons.autumn, Program.Seasons.spring, Program.Seasons.summer}, -2, -2, 4 ) ,
-           new Program.Plant ("спаржа", new List<Program.Seasons> { Program.Seasons.winter, Program.Seasons.spring}, 2, -4, 2 ) ,
-           new Program.Plant ("баклажан", new List<Program.Seasons> { Program.Seasons.autumn, Program.Seasons.spring}, 2, 2, -4 ) ,
-           new Program.Plant ("тыква", new List<Program.Seasons> { Program.Seasons.autumn, Program.Seasons.winter}, -4, 2, 2 ) ,
-           new Program.Plant ("арбуз", new List<Program.Seasons> { Program.Seasons.spring, Program.Seasons.autumn}, 4, -2, -2 ) ,
-           new Program.Plant ("питайа", new List<Program.Seasons> { Program.Seasons.spring, Program.Seasons.autumn}, 4, 4, -8 ) ,
-           new Program.Plant ("дуриан", new List<Program.Seasons> { Program.Seasons.spring}, 4, -8, 4 ) ,
-           new Program.Plant ("чеснок", new List<Program.Seasons> { Program.Seasons.autumn, Program.Seasons.winter, Program.Seasons.spring, Program.Seasons.summer}, 4, -8, 4 ) ,
-           new Program.Plant ("лук", new List<Program.Seasons> { Program.Seasons.autumn, Program.Seasons.spring, Program.Seasons.summer}, -8, 4, 4 ) ,
-           new Program.Plant ("перец", new List<Program.Seasons> { Program.Seasons.autumn, Program.Seasons.summer}, 4, 4, -8 ) ,
-           new Program.Plant ("гранат", new List<Program.Seasons> { Program.Seasons.spring, Program.Seasons.summer}, -8, 4, 4 ) ,
+           new Plant ("морковь", new List<Seasons> { Seasons.autumn, Seasons.winter, Seasons.spring }, -4, 2, 2 ) ,
+           new Plant ("кукуруза", new List<Seasons> { Seasons.autumn, Seasons.spring, Seasons.autumn }, 2, -4, 2 ) ,
+           new Plant ("картофель", new List<Seasons> { Seasons.autumn, Seasons.winter, Seasons.spring }, 2, 2, -4 ) ,
+           new Plant ("томат", new List<Seasons> { Seasons.autumn, Seasons.spring, Seasons.summer }, -2, -2, 4 ) ,
+           new Plant ("спаржа", new List<Seasons> { Seasons.winter, Seasons.spring }, 2, -4, 2 ) ,
+           new Plant ("баклажан", new List<Seasons> { Seasons.autumn, Seasons.spring }, 2, 2, -4 ) ,
+           new Plant ("тыква", new List<Seasons> { Seasons.autumn, Seasons.winter }, -4, 2, 2 ) ,
+           new Plant ("арбуз", new List<Seasons> { Seasons.spring, Seasons.summer }, 4, -2, -2 ) ,
+           new Plant ("питайа", new List<Seasons> { Seasons.spring, Seasons.summer }, 4, 4, -8 ) ,
+           new Plant ("дуриан", new List<Seasons> { Seasons.spring}, 4, -8, 4 ) ,
+           new Plant ("чеснок", new List<Seasons> { Seasons.autumn, Seasons.winter, Seasons.spring, Seasons.summer }, 4, -8, 4 ) ,
+           new Plant ("лук", new List<Seasons> { Seasons.autumn, Seasons.spring, Seasons.summer }, -8, 4, 4 ) ,
+           new Plant ("перец", new List<Seasons> { Seasons.autumn, Seasons.summer }, 4, 4, -8 ) ,
+           new Plant ("гранат", new List<Seasons> { Seasons.spring, Seasons.summer }, -8, 4, 4 ) ,
         };
 
         public static void printAll()
@@ -29,26 +29,26 @@ namespace Program
             Console.WriteLine("Растение\t|Формула роста\t|Компост\t|Навоз\t\t|Любимые сезоны\t|");
             Console.WriteLine("---------------------------------------------------------------------------------");
 
-            foreach (Program.Plant plant in plants)
+            foreach (Plant plant in plants)
             {
                 if (plant.getName().Length >= 8)
                 {
                     Console.Write($"{plant.getName()}\t|\t{plant.getGrFormula()}\t|\t{plant.getCompost()}\t|\t{plant.getManure()}\t|");
 
-                    foreach (Program.Seasons season in plant.getSeasons())
+                    foreach (Seasons season in plant.getSeasons())
                     {
                         switch (season)
                         {
-                            case Program.Seasons.autumn:
+                            case Seasons.autumn:
                                 Console.Write(" О ");
                                 break;
-                            case Program.Seasons.winter:
+                            case Seasons.winter:
                                 Console.Write(" З ");
                                 break;
-                            case Program.Seasons.spring:
+                            case Seasons.spring:
                                 Console.Write(" В ");
                                 break;
-                            case Program.Seasons.summer:
+                            case Seasons.summer:
                                 Console.Write(" Л ");
                                 break;
                         }
@@ -65,20 +65,20 @@ namespace Program
                 {
                     Console.Write($"{plant.getName()}\t\t|\t{plant.getGrFormula()}\t|\t{plant.getCompost()}\t|\t{plant.getManure()}\t|");
 
-                    foreach (Program.Seasons season in plant.getSeasons())
+                    foreach (Seasons season in plant.getSeasons())
                     {
                         switch (season)
                         {
-                            case Program.Seasons.autumn:
+                            case Seasons.autumn:
                                 Console.Write(" О ");
                                 break;
-                            case Program.Seasons.winter:
+                            case Seasons.winter:
                                 Console.Write(" З ");
                                 break;
-                            case Program.Seasons.spring:
+                            case Seasons.spring:
                                 Console.Write(" В ");
                                 break;
-                            case Program.Seasons.summer:
+                            case Seasons.summer:
                                 Console.Write(" Л ");
                                 break;
                         }
