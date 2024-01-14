@@ -414,8 +414,12 @@ namespace Program
                     Console.Write(plantsWithOtherSeasons[i].getName() + ", ");
                 }
 
-                
-                Console.Write(plantsWithOtherSeasons[plantsWithOtherSeasons.Count - 1].getName());
+
+                if (plantsWithOtherSeasons.Count > 1)
+                {
+                    Console.Write(plantsWithOtherSeasons[plantsWithOtherSeasons.Count - 1].getName());
+                }
+
                 Console.WriteLine();
                 Console.ResetColor();
             }

@@ -3782,6 +3782,7 @@
 											"model": {
 												"$ref": "AAAAAAGNA5yHaE52pn4="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 501,
 											"top": 293,
@@ -3801,7 +3802,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 501,
-											"top": 308,
+											"top": 293,
 											"width": 119,
 											"height": 13,
 											"text": "-typeOfFertilizer",
@@ -3818,7 +3819,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 501,
-											"top": 323,
+											"top": 308,
 											"width": 119,
 											"height": 13,
 											"text": "-grFormula",
@@ -3835,7 +3836,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 501,
-											"top": 338,
+											"top": 323,
 											"width": 119,
 											"height": 13,
 											"text": "-compost",
@@ -3852,7 +3853,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 501,
-											"top": 353,
+											"top": 338,
 											"width": 119,
 											"height": 13,
 											"text": "-manure",
@@ -3863,7 +3864,7 @@
 									"left": 496,
 									"top": 273,
 									"width": 129,
-									"height": 98
+									"height": 83
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -3876,7 +3877,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 496,
-									"top": 371,
+									"top": 356,
 									"width": 129,
 									"height": 10
 								},
@@ -4972,7 +4973,8 @@
 								"$ref": "AAAAAAGNA5t7sUIjS7k="
 							},
 							"name": "name",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4981,7 +4983,8 @@
 								"$ref": "AAAAAAGNA5t7sUIjS7k="
 							},
 							"name": "amountOfFertilizer",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4990,7 +4993,8 @@
 								"$ref": "AAAAAAGNA5t7sUIjS7k="
 							},
 							"name": "typeOfFertilizer",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4999,7 +5003,8 @@
 								"$ref": "AAAAAAGNA5t7sUIjS7k="
 							},
 							"name": "grFormula",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -5008,7 +5013,8 @@
 								"$ref": "AAAAAAGNA5t7sUIjS7k="
 							},
 							"name": "compost",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -5017,7 +5023,8 @@
 								"$ref": "AAAAAAGNA5t7sUIjS7k="
 							},
 							"name": "manure",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				},

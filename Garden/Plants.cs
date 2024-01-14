@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Program
 {
-    public class Plants
+    public static class Plants
     {
         public static readonly Plant[] plants = new Plant[]
         {
