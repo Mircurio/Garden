@@ -187,21 +187,6 @@ namespace Program
             }
         }
 
-        private static bool canGrowInThisSeason(Plant plant)
-        {
-            if (plant.getSeasons() == null)
-            {
-                throw new ArgumentException("Сезоны для данного растения не заданы!");
-            }
-
-            if (plant.getSeasons().Contains(currentSeason))
-            {
-                return true;
-            }
-
-            return false;
-        }
-
         // Возвращает список растений, которые не могут расти в заданный сезон.
         private static List<Plant> checkAllPlants()
         {
@@ -239,6 +224,21 @@ namespace Program
         public static void removePlant(Plant plant)
         {
             plants.Remove(plant);
+        }
+
+        public static bool canGrowInThisSeason(Plant plant)
+        {
+            if (plant.getSeasons() == null)
+            {
+                throw new ArgumentException("Сезоны для данного растения не заданы!");
+            }
+
+            if (plant.getSeasons().Contains(currentSeason))
+            {
+                return true;
+            }
+
+            return false;
         }
         public static void calculate(Soil soil)
         {
@@ -303,7 +303,10 @@ namespace Program
                     file.WriteLine(soil.getManure());
                 }
 
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Данные успешно сохранены!");
+                Console.ResetColor();
+
                 Thread.Sleep(2000);
             }
         }
@@ -344,7 +347,10 @@ namespace Program
     {
         private static void errorDetected(string message, int sleepingTime = 2000, bool willBeep = true)
         {
+            Console.ForegroundColor= ConsoleColor.Red;
             Console.WriteLine(message);
+            Console.ResetColor();
+
             Console.Beep();
             Thread.Sleep(sleepingTime);
         }
@@ -468,6 +474,7 @@ namespace Program
             string choice;
             Console.Write("Записать данные на грядку? (да/Нет): ");
             choice = Console.ReadLine();
+            Console.WriteLine();
 
             if (choice == "Да" || choice == "да")
             {
@@ -536,8 +543,18 @@ namespace Program
 
                 for (int i = 0; i < Plants.plants.Count(); i++)
                 {
+                    if (!Planner.canGrowInThisSeason(Plants.plants[i]))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor= ConsoleColor.Green;
+                    }
+
                     Console.WriteLine($"{i + 1} - {Plants.plants[i].getName()}");
                 }
+                Console.ResetColor();
 
                 while (input != stop && Planner.getCount() < 9)
                 {
@@ -563,6 +580,7 @@ namespace Program
                         errorDetected("Некорректный ввод!\nПопробуйте ещё раз!");
                     }
                 }
+            Console.WriteLine();
 
                 Planner.calculate(soil);
                 Planner.clear();
