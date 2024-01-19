@@ -4,26 +4,6 @@ using System.IO;
 
 namespace Program
 {
-    public class DifferentSeasonsException : Exception
-    {
-        public DifferentSeasonsException(string message) : base(message) { }
-        public DifferentSeasonsException() : this("Не все растения могут расти в текущий сезон!") { }
-    }
-    public class CannotFindSoilException : Exception
-    {
-        public CannotFindSoilException() : base("Не удаётся найти грядку с таким номером!")
-        {
-
-        }
-    }
-
-    public class ThisSoilIsAlreadyExistsException : Exception
-    {
-        public ThisSoilIsAlreadyExistsException() : base("Грядка с таким номером уже существует!")
-        {
-
-        }
-    }
     public enum Seasons
     {
         autumn,
@@ -381,6 +361,58 @@ namespace Program
             else if (amountOfFertilizer < 0)
             {
                 Console.WriteLine($"В почве недостаток {typeOfFertilizer}: {-amountOfFertilizer}.");
+
+                int needToAdd;
+                
+                // Делаем > 0.
+                amountOfFertilizer = -amountOfFertilizer;
+
+                // typeOfFertilizer в родительном падеже
+                switch (typeOfFertilizer)
+                {
+                    case "формулы роста":
+
+                        if (amountOfFertilizer % Fertilizers.GetFertilizer("сгнивший кусочек рыбы").getGrFormula() == 0)
+                        {
+                            needToAdd = amountOfFertilizer / Fertilizers.GetFertilizer("сгнивший кусочек рыбы").getGrFormula();
+                        }
+                        else
+                        {
+                            needToAdd = amountOfFertilizer / Fertilizers.GetFertilizer("сгнивший кусочек рыбы").getGrFormula() + 1;
+                        }
+                        Console.WriteLine($"Можно добавить {needToAdd} сгнивших кусочков рыбины.");
+
+                        break;
+
+                    case "компостных веществ":
+
+                        if (amountOfFertilizer % Fertilizers.GetFertilizer("компост").getCompost() == 0)
+                        {
+                            needToAdd = amountOfFertilizer / Fertilizers.GetFertilizer("компост").getCompost();
+                        }
+                        else
+                        {
+                            needToAdd = amountOfFertilizer / Fertilizers.GetFertilizer("компост").getCompost() + 1;
+                        }
+                        Console.WriteLine($"Можно добавить {needToAdd} компоста.");
+
+                        break;
+
+                    case "навозных веществ":
+
+                        if (amountOfFertilizer % Fertilizers.GetFertilizer("навоз").getManure() == 0)
+                        {
+                            needToAdd = amountOfFertilizer / Fertilizers.GetFertilizer("навоз").getManure();
+                        }
+                        else
+                        {
+                            needToAdd = amountOfFertilizer / Fertilizers.GetFertilizer("навоз").getManure() + 1;
+                        }
+                        Console.WriteLine($"Можно добавить {needToAdd} навоза.");
+
+                        break;
+                }
+
             }
             else if (amountOfFertilizer > 0)
             {
@@ -726,7 +758,7 @@ namespace Program
     }
     public class main
     {
-        const string version = "3.1";
+        const string version = "3.2";
         public static void Main()
         {
             Console.WriteLine($"Добро пожаловать в Огородик {version}!");

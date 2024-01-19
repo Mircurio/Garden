@@ -40,7 +40,7 @@ namespace Program
     }
     public static class Fertilizers
     {
-        public static readonly Fertilizer[] fertilizers = new Fertilizer[]
+        private static readonly Fertilizer[] fertilizers = new Fertilizer[]
         {
             new Fertilizer("навоз",                 0, 0, 8),
             new Fertilizer("гниль",                 0, 8, 0),
@@ -55,5 +55,18 @@ namespace Program
             new Fertilizer("сгнивший кусочек рыбы", 8, 0, 0),
             new Fertilizer("древесный джем",        8, 32, 8),
         };
+
+        public static Fertilizer GetFertilizer(string name)
+        {
+            for (int i = 0; i < fertilizers.Length; i++)
+            {
+                if (fertilizers[i].getName() == name)
+                {
+                    return fertilizers[i];
+                }
+            }
+
+            throw new CannotFindThisFertilizerException(); 
+        }
     }
 }
