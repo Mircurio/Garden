@@ -23,7 +23,7 @@ namespace Program
 
     public class CannotFindThisFertilizerException : Exception
     {
-        public CannotFindThisFertilizerException() : base("Не удаётся найти удабрение с таким именем!") { }
+        public CannotFindThisFertilizerException() : base("Не удаётся найти удобрение с таким именем!") { }
         public CannotFindThisFertilizerException(string message) : base(message) { }
     }
 }
